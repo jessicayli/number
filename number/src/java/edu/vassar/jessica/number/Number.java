@@ -1,5 +1,6 @@
 package edu.vassar.jessica.number;
 import java.io.*;
+import java.util.*;
 
 public class Number {
 
@@ -10,7 +11,7 @@ public class Number {
 		// algorithm is to keep dividing by the base, (2) 
 		// with the remainders creating the converted number from right to left
 		int base = 2; 
-		StringBuilder result = new StringBuilder;
+		StringBuilder result = new StringBuilder();
 		// decimal is the number are converting and what we start out with in calculation
 
 		while (decimal > 0) {
@@ -18,7 +19,7 @@ public class Number {
 			int q = decimal / base;
 			int r = decimal % base;
 			// Take remainder and add it on to number.
-			System.out.println("The remainder is" + r) // COMMENT OUT
+			System.out.println("The remainder is" + r); // COMMENT OUT
 			result.append(r);
 			// Set decimal to the whole number quotient in the calculation
 			decimal = q;
@@ -30,20 +31,23 @@ public class Number {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Class called with following arguments");
 
-		// ** EDIT THIS to take in std input if no txt file **
-		int decimal = 0;
+		// if () {
+		// 	// file read
+		// } else {
+		// 	// std input read
+		// }
 		try {
 			// // initialize FileReader, BufferedReader to read txt file
 			BufferedReader theFile = new BufferedReader(new FileReader("SimpleBinaryConverter---TestInput.txt"));
-			String line = theFile.readLine();
-
+String line = theFile.readLine();
 			while (line != null) {
+				
 				// convert string to number, call convert() method
 				int lineAsNumber = Integer.parseInt(line); // ??? 
-				// System.out.println(convert(lineAsNumber));
+				System.out.println(convert(lineAsNumber));
 				System.out.println("Read one line from txt file");
+				line = theFile.readLine();
 	        }
 			theFile.close();
 		} catch (IOException e) {
@@ -52,6 +56,7 @@ public class Number {
 			//if no text file available, read from std input
 			Scanner sc = Scanner.create(System.in); 
 			int i = sc.nextInt();
+			System.out.println(convert(i));
 			
 		}
 	}
