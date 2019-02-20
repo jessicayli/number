@@ -19,7 +19,7 @@ public class Number {
 			int q = decimal / base;
 			int r = decimal % base;
 			// Take remainder and add it on to number.
-			System.out.println("The remainder is" + r); // COMMENT OUT
+			// System.out.println("The remainder is " + r); // COMMENT OUT
 			result.append(r);
 			// Set decimal to the whole number quotient in the calculation
 			decimal = q;
@@ -27,11 +27,16 @@ public class Number {
 
 		// reverse the appended string
 		result.reverse();
-		System.out.println(result);
+		// System.out.println(result); 
+		String binaryResult = result.toString();
+		// System.out.println(binaryResult);
+		return binaryResult;
+
 	}
 
 	public static void main(String[] args) {
 
+		System.out.println(convert(10)); // Test
 		// if () {
 		// 	// file read
 		// } else {
@@ -40,7 +45,8 @@ public class Number {
 		try {
 			// // initialize FileReader, BufferedReader to read txt file
 			BufferedReader theFile = new BufferedReader(new FileReader("SimpleBinaryConverter---TestInput.txt"));
-String line = theFile.readLine();
+			String line = theFile.readLine();
+			
 			while (line != null) {
 				
 				// convert string to number, call convert() method
@@ -54,7 +60,7 @@ String line = theFile.readLine();
 			System.out.println("IOException: " + e);
 
 			//if no text file available, read from std input
-			Scanner sc = Scanner.create(System.in); 
+			Scanner sc = new Scanner(System.in); 
 			int i = sc.nextInt();
 			System.out.println(convert(i));
 			
